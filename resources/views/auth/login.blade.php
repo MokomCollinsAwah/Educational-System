@@ -19,12 +19,12 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>BHS-</b>LOGIN</a>
+      <a href="#"><b>BHS-</b>LOGIN</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      @include('message');
+      @include('message')
       <form action="{{url('login')}}" method="post">
     {{ csrf_field() }}
         <div class="input-group mb-3">

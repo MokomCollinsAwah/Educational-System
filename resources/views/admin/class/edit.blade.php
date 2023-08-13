@@ -11,7 +11,7 @@
           <h1>Class List</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
-            <h1>Add New Class</h1>
+            <h1>Edit New Class</h1>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -26,13 +26,13 @@
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" class="form-control"  name='name' required placeholder="Name">
+                                    <label for="">Class Name</label>
+                                    <input type="text" class="form-control" value={{$getRecord->name}} name='name' required placeholder="Name">
                                 </div>
                                 
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
     

@@ -22,9 +22,11 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+       
+       
         @if(Auth::user()-> user_type == 1)
         <li class="nav-item">
-          <a href="../admin/dashboard" class="nav-link @if(Request::segment(2)=='dashboard') active @endif">
+          <a href="{{url('admin/dashboard')}}" class="nav-link @if(Request::segment(2)=='dashboard') active @endif">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard 
@@ -32,24 +34,25 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="../admin/list" class="nav-link @if(Request::segment(2)=='admin') active @endif">
+          <a href="{{url('admin/student/list')}}" class="nav-link @if(Request::segment(2)=='student') active @endif">
             <i class="nav-icon far fa-user"></i>
             <p>
-              Admin
+              Student
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="../admin/class/list" class="nav-link @if(Request::segment(2)=='admin') active @endif">
+          <a href="{{url('admin/class/list')}}" class="nav-link @if(Request::segment(2)=='class') active @endif">
             <i class="nav-icon far fa-user"></i>
             <p>
               Class
             </p>
           </a>
         </li>
+                {{-- teacher section --}}
         @elseif(Auth::user()->user_type == 2)
         <li class="nav-item">
-          <a href="../teacher/dashboard" class="nav-link @if(Request:: segment(2)=='dashboard') active @endif">
+          <a href="{{url('/teacher/dashboard')}}" class="nav-link @if(Request:: segment(2)=='dashboard') active @endif">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard

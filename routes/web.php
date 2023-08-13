@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\StudentController;
  
 use App\Models\ClassModel;
 
@@ -22,26 +23,27 @@ Route::get('/', [AuthController::class, 'login']);
 Route::post('login',[AuthController::class, 'AuthLogin']);              
 Route::get('logout',[AuthController::class, 'logout']);              
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('admin/dashboard', function () {
-    return view('admin.dashboard');
-});
-
-Route::view("admin/list", 'admin.list');
-
-// Route::view("admin/dashboard", 'dashboard');
-
-
 Route::group(['middleware' => 'admin'], function(){
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
      
+
+    //student url
+    Route::get('admin/student/list', [StudentController::class, 'list']);
+    Route::get('admin/student/add', [StudentController::class, 'add']);
+    Route::post('admin/student/add', [StudentController::class, 'insert']);
+    Route::get('admin/student/edit/{id}', [StudentController::class, 'edit']);
+    Route::post('admin/student/edit/{id}', [StudentController::class, 'update']);
+    Route::get('admin/student/delete/{id}', [StudentController::class, 'delete']);
+
+
     //class url
     Route::get('admin/class/list', [ClassController::class, 'list']);
     Route::get('admin/class/add', [ClassController::class, 'add']);
     Route::post('admin/class/add', [ClassController::class, 'insert']);
+    Route::get('admin/class/edit/{id}', [ClassController::class, 'edit']);
+    Route::post('admin/class/edit/{id}', [ClassController::class, 'update']);
+    Route::get('admin/class/update/{id}', [ClassController::class, 'delete']);
+    
 
 });
 
